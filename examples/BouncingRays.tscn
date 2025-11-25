@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://8vhgcprdubwg"]
+[gd_scene load_steps=5 format=3 uid="uid://8vhgcprdubwg"]
 
 [ext_resource type="Script" uid="uid://bigjmklstmssj" path="res://addons/RDRays/BounceRays.gd" id="1_khtex"]
 
@@ -7,6 +7,9 @@ size = Vector2(54, 229)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbpj7"]
 size = Vector2(280, 51.5)
+
+[sub_resource type="Environment" id="Environment_khtex"]
+glow_enabled = true
 
 [node name="Node2D" type="Node2D"]
 
@@ -26,3 +29,10 @@ shape = SubResource("RectangleShape2D_khtex")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(295, 51.75)
 shape = SubResource("RectangleShape2D_lbpj7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_khtex")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(608, 156)
+energy = 3.02

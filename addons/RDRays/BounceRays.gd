@@ -22,6 +22,21 @@ class_name BouncingRays
 @export_range(0.0, 1.0, 0.01) var intensity_loss_refract: float = 0.02
 @export var attenuation_per_unit: float = 0.0005
 
+
+
+
+
+func _ray_effect():
+	pass
+
+
+
+
+
+
+
+
+
 var rays: Array = []
 
 func _ready():
@@ -36,6 +51,7 @@ func _ready():
 			"inside": false,
 			"history": [spawn_position]
 		})
+	_ray_effect()
 
 func _physics_process(delta):
 	move_rays(delta)

@@ -16,4 +16,4 @@ config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/RDRays/plugin.cfg")
+enabled=PackedStringArray("res://addons/RDRays/plugin.cfg", "res://addons/deep_raycast_3d/plugin.cfg")
