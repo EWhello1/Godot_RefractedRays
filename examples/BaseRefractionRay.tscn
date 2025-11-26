@@ -1,0 +1,146 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfucto475aq2u"]
+
+[ext_resource type="Script" uid="uid://bpballqw84bb1" path="res://addons/RDRays/BaseRefractingRay.gd" id="1_1bht1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vem56"]
+
+[sub_resource type="Gradient" id="Gradient_vem56"]
+offsets = PackedFloat32Array(0, 0.025974)
+colors = PackedColorArray(0, 0, 0, 1, 0.0117647, 0, 0.721569, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_13sax"]
+gradient = SubResource("Gradient_vem56")
+fill_to = Vector2(0.00458716, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_13sax"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_vem56"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_13sax"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1bht1")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(154, 332)
+scale = Vector2(124.5, 62.5)
+mesh = SubResource("BoxMesh_vem56")
+texture = SubResource("GradientTexture2D_13sax")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 129.0
+offset_top = 320.0
+offset_right = 169.0
+offset_bottom = 343.0
+text = "CAM"
+label_settings = SubResource("LabelSettings_13sax")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+position = Vector2(220, 331)
+scale = Vector2(14, 14)
+mesh = SubResource("SphereMesh_vem56")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="MeshInstance2D2"]
+position = Vector2(3.21429, 0.0357164)
+scale = Vector2(5.71429, 0.214283)
+mesh = SubResource("BoxMesh_13sax")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 699.0
+offset_top = 9.0
+offset_right = 1152.0
+offset_bottom = 387.0
+
+[node name="Method" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_right = 139.0
+offset_bottom = 31.0
+text = "1"
+placeholder_text = "Method"
+
+[node name="RposX" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 38.0
+offset_right = 69.5625
+offset_bottom = 69.0
+text = "220"
+placeholder_text = "RayPositionX"
+
+[node name="RposY" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 40.0
+offset_right = 143.563
+offset_bottom = 71.0
+text = "330"
+placeholder_text = "RayPositionY"
+
+[node name="PMARfob" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 6.0
+offset_right = 330.563
+offset_bottom = 37.0
+text = "3"
+placeholder_text = "PMARfob"
+
+[node name="RAngle" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 74.0
+offset_right = 69.5625
+offset_bottom = 105.0
+text = "-90"
+placeholder_text = "RayAngle"
+
+[node name="CircleRadius" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 78.0
+offset_right = 145.563
+offset_bottom = 109.0
+text = "50"
+placeholder_text = "CircleRadius"
+
+[node name="CirclePosX" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 112.0
+offset_right = 94.0
+offset_bottom = 143.0
+text = "200"
+placeholder_text = "CirclePosX"
+
+[node name="CirclePosY" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 147.0
+offset_right = 95.0
+offset_bottom = 178.0
+text = "200"
+placeholder_text = "CirclePosY"
+
+[node name="-RayAngle" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 6.0
+offset_right = 445.0
+offset_bottom = 75.0
+text = "-RayAngle"
+
+[node name="+RayAngle" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 87.0
+offset_right = 446.0
+offset_bottom = 156.0
+text = "+RayAngle"
+
+[connection signal="button_down" from="Panel/-RayAngle" to="." method="_on_MAray_angle_button_down"]
+[connection signal="button_up" from="Panel/-RayAngle" to="." method="_on_Mray_angle_button_up"]
+[connection signal="pressed" from="Panel/-RayAngle" to="." method="_on_Plusray_angle_pressed"]
+[connection signal="button_down" from="Panel/+RayAngle" to="." method="_on_Pray_angle_button_down"]
+[connection signal="button_up" from="Panel/+RayAngle" to="." method="_on_Pray_angle_button_up"]
+[connection signal="pressed" from="Panel/+RayAngle" to="." method="_on_Minusray_angle_pressed"]
